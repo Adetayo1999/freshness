@@ -20,8 +20,8 @@ jobs:
         with:
           node-version: 16
       - name: Install dependencies
-      - run: npm Install
+        run: npm Install
       - name: Run Linters
-      - run: npm run lint:fix
+        run: npm run lint:fix
       - name: Test code
-      - run: npm test
+        run: npm test
