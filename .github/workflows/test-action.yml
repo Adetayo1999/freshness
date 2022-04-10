@@ -13,9 +13,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macOs-latest]
     steps:
-      - name: checkout into the repository
       - uses: action/checkout@v3
-      - name: setup node for the environment
       - uses: action/setup-node@v3
         with:
           node-version: 16
