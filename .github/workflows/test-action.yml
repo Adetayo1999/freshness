@@ -1,0 +1,27 @@
+name: Run Tests And Linters
+on:
+  push:
+    branches:
+      - '*'
+      - '*/*'
+      - '*/**'
+      - '!main'
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOs-latest]
+    steps:
+      - name: checkout into the repository
+      - uses: action/checkout@v3
+      - name: setup node for the environment
+      - uses: action/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install dependencies
+      - run: npm Install
+      - name: Run Linters
+      - run: npm run lint:fix
+      - name: Test code
+      - run: npm test
